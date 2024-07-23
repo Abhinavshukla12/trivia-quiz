@@ -10,15 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const durationElem = document.getElementById('duration');
     const trackNameElem = document.getElementById('track-name');
     const artistNameElem = document.getElementById('artist-name');
+    const playlistElement = document.getElementById('playlist');
 
     let isPlaying = false;
     let currentTrackIndex = 0;
 
     // Sample playlist
     const playlist = [
-        { src: 'song/Fire.mp3', name: 'Track 1', artist: 'Artist 1' },
-        { src: 'track2.mp3', name: 'Track 2', artist: 'Artist 2' },
-        { src: 'track3.mp3', name: 'Track 3', artist: 'Artist 3' }
+        { src: 'song/Fire.mp3', name: 'Fire', artist: 'Artist 1' },
+        { src: 'song/Dekha_Tenu.mp3', name: 'Dekha Tenu', artist: 'Artist 2' },
+        { src: 'song/O_Sajni_Re.mp3', name: 'O Sajni Re', artist: 'Artist 3' }
     ];
 
     function loadTrack(index) {
@@ -38,6 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor(seconds / 60);
         const secs = Math.floor(seconds % 60);
         return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function populatePlaylist() {
+        playlistElement.innerHTML = '';
+        playlist.forEach((track, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${track.name} - ${track.artist}`;
+            li.addEventListener('click', () => {
+                loadTrack(index);
+                playPauseBtn.textContent = 'Pause';
+                isPlaying = true;
+                audio.play();
+            });
+            playlistElement.appendChild(li);
+        });
     }
 
     playPauseBtn.addEventListener('click', () => {
@@ -84,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.volume = volume.value / 100;
     });
 
-    // Initialize the first track
+    // Initialize the first track and populate the playlist
     loadTrack(currentTrackIndex);
+    populatePlaylist();
 });
