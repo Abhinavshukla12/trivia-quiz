@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sample playlist
     const playlist = [
-        // { src: 'song/Fire.mp3', name: 'Fire', artist: 'Artist 1' },
-        // { src: 'song/Dekha_Tenu.mp3', name: 'Dekha Tenu', artist: 'Artist 2' },
-        // { src: 'song/O_Sajni_Re.mp3', name: 'O Sajni Re', artist: 'Artist 3' },
+        { src: 'song/Fire.mp3', name: 'Fire', artist: 'Artist 1' },
+        { src: 'song/Dekha_Tenu.mp3', name: 'Dekha Tenu', artist: 'Artist 2' },
+        { src: 'song/O_Sajni_Re.mp3', name: 'O Sajni Re', artist: 'Artist 3' },
         { src: 'song/Criminal.mp3', name: 'Criminal', artist: 'Artist 4' },
         { src: 'song/Envy.mp3', name: 'Envy', artist: 'Artist 5' },
         { src: 'song/Gulabi_Sadi.mp3', name: 'Gulabi_Sadi', artist: 'Artist 6' },
